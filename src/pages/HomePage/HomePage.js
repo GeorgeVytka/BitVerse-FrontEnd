@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchActiclesData } from "../../features/api/articlesActions";
+import { Navigate, redirect } from "react-router-dom";
 import HeadlineThumbNail from "../../components/HeadlineThumbNail/HeadlineThumbNail";
+import ArticleThumbnail from "../../components/ArticleThumbnail/ArticleThumbnail";
+import classes from "./HomePage.module.css";
 
 const HomePage = () => {
   const tempArry = [
@@ -23,11 +28,46 @@ const HomePage = () => {
     },
   ];
 
+  const tempArry2 = [
+    {
+      img: "https://placebeard.it/640x360 ",
+      tag: "Pc",
+      title: "This is an Article!!!",
+      author: "Vibes",
+    },
+    {
+      img: "https://placebeard.it/640x360 ",
+      tag: "Pc",
+      title: "This is an Article!!!",
+      author: "Vibes",
+    },
+  ];
+  const articleArry = [];
+  const article = useSelector((state) => state.GetArticles.articles);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchActiclesData());
+  }, [dispatch]);
+
   return (
     <>
-      {tempArry.map((article) => (
-        <HeadlineThumbNail thumbnail={article} />
-      ))}
+      <div className={classes.ArticleContainer}>
+        <h1 className={classes.HeadLine}>Top News</h1>
+        {article.map((article, index) => (
+          <HeadlineThumbNail key={index} thumbnail={article} />
+        ))}
+      </div>
+      <div className={classes.HeadLineContainer}>
+        <h2 className={classes.HeadLine}>More News</h2>
+        <div className={classes.divider}></div>
+      </div>
+
+      <div>
+        {tempArry2.map((article, index) => (
+          <ArticleThumbnail key={index} thumbnail={article} />
+        ))}
+      </div>
     </>
   );
 };

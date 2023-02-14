@@ -16,7 +16,7 @@ import LogoDevIcon from "@mui/icons-material/LogoDev";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { Titles } from "../../ults/names";
-//import { theme } from "../../ults/color";
+import { colorTheme } from "../../ults/color";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -44,7 +44,7 @@ function Navbar() {
     palette: {
       primary: {
         // Purple and green play nicely together.
-        main: "#03001C",
+        main: colorTheme.PRIMARY_COLOR,
       },
       secondary: {
         // This is green.A700 as hex.
@@ -157,7 +157,7 @@ function Navbar() {
             >
               <Button
                 onClick={handleCloseNavMenu}
-                style={{ color: "#5B8FB9" }}
+                style={{ color: colorTheme.TERTIARY_COLOR }}
                 sm={{ pt: 10 }}
                 sx={{
                   my: 1,

@@ -1,12 +1,6 @@
-import { createTheme } from "@mui/material/styles";
-
-export const theme = createTheme({
-  primary: {
-    // Purple and green play nicely together.
-    main: "#4d9463",
-  },
-  secondary: {
-    // This is green.A700 as hex.
-    main: "#4d9463",
-  },
-});
+export const colorTheme = {
+  PRIMARY_COLOR: "#03001C",
+  SECONDARY_COLOR: "#301E67",
+  TERTIARY_COLOR: "#5B8FB9",
+  QUATERNARY_COLOR: "#B6EADA",
+};

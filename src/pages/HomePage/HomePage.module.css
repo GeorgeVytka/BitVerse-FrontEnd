@@ -1,0 +1,25 @@
+.HeadLine{
+    margin-left: 10px;
+}
+
+.HeadLineContainer{
+    margin-top: 30px;
+ 
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+ 
+ 
+}
+.ArticleContainer:last-child(){
+    background-color: aqua;
+}
+
+.divider{
+    border-top: solid;
+    margin-right: 20px;
+    width: 70%;
+    height: 50%;
+   
+}

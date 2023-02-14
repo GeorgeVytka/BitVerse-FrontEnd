@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, redirect } from "react-router-dom";
-import classes from "./HeadlineThumbNail.module.css";
+import React from "react";
 import { colorTheme } from "../../ults/color";
-//"https://www.placecage.com/300/300"
-const HeadlineThumbNail = (props) => {
-  const [ArticleImg, SetArticleImg] = useState(
-    "https://placekitten.com/440/360"
-  );
-  let navigate = useNavigate();
+import classes from "./ArticleThumbnail.module.css";
+const ArticleThumbnail = (props) => {
   return (
-    <div
-      className={classes.container}
-      onClick={() => {
-        navigate(`/article/${props.thumbnail.ID}`);
-      }}
-    >
+    <div className={classes.container}>
       <div className={classes.imgContainer}>
-        <img src={props.thumbnail.thumbnailImg} />
+        <img src={props.thumbnail.img} />
       </div>
       <div className={classes.titleContainer}>
         <div
@@ -43,4 +32,4 @@ const HeadlineThumbNail = (props) => {
   );
 };
 
-export default HeadlineThumbNail;
+export default ArticleThumbnail;
