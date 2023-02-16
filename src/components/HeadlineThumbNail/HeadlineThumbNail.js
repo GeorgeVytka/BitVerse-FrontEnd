@@ -23,7 +23,7 @@ const HeadlineThumbNail = (props) => {
           className={classes.tag}
           style={{ backgroundColor: colorTheme.SECONDARY_COLOR }}
         >
-          <p>{props.thumbnail.tag}</p>
+          <p>{props.thumbnail.tags[0]}</p>
         </div>
         <h2 className={classes.title}>{props.thumbnail.title}</h2>
         <p>

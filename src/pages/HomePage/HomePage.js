@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchActiclesData } from "../../features/api/articlesActions";
 import { Navigate, redirect } from "react-router-dom";
+import { ArticleSlice } from "../../features/api/ArticlesSlice";
 import HeadlineThumbNail from "../../components/HeadlineThumbNail/HeadlineThumbNail";
 import ArticleThumbnail from "../../components/ArticleThumbnail/ArticleThumbnail";
 import classes from "./HomePage.module.css";
@@ -44,10 +45,12 @@ const HomePage = () => {
   ];
   const articleArry = [];
   const article = useSelector((state) => state.GetArticles.articles);
+  const loading = useSelector((state) => state.GetArticles.isLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchActiclesData());
+    dispatch(ArticleSlice.actions.IsLoading(false));
   }, [dispatch]);
 
   return (

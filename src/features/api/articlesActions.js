@@ -1,4 +1,5 @@
 import { ArticleSlice } from "./ArticlesSlice.js";
+
 import axios from "axios";
 
 export const fetchActiclesData = () => {
@@ -31,8 +32,9 @@ export const fetchArticleBodyData = (id) => {
 
     try {
       const articleData = await fetchData();
-
+      console.log("in actionsSS --", articleData);
       dispatch(ArticleSlice.actions.ArticleBody(articleData));
+      dispatch(ArticleSlice.actions.IsLoading(true));
     } catch (error) {
       console.log("**", error);
     }

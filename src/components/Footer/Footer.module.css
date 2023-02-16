@@ -1,0 +1,50 @@
+:root{
+    --PRIMARY_COLOR: #03001C;
+    --SECONDARY_COLOR: #301E67 ;
+    --TERTIARY_COLOR: #5B8FB9;
+    --QUATERNARY_COLOR: #03cd90;
+}
+.footContainer{
+    background-color: var(--PRIMARY_COLOR);
+    color: white;
+    height: 250px;
+
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.titleContainer{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.listContainer{
+
+margin-left: auto;
+margin-right: auto;
+width: 85%;
+   
+}
+.listContainer ul {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+   
+}
+
+.listContainer ul li a{
+
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    
+}
+
+.parentCompany{
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
