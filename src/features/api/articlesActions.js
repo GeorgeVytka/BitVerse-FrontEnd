@@ -20,6 +20,27 @@ export const fetchActiclesData = () => {
   };
 };
 
+export const fetchArticleByTag = (tag) => {
+  return async (dispatch) => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        ` http://localhost:8080/api/v1/articles/${tag}`
+      );
+
+      return response.data;
+    };
+
+    try {
+      const articleData = await fetchData();
+
+      dispatch(ArticleSlice.actions.Articles(articleData));
+      dispatch(ArticleSlice.actions.IsLoading(true));
+    } catch (error) {
+      console.log("**", error);
+    }
+  };
+};
+
 export const fetchArticleBodyData = (id) => {
   return async (dispatch) => {
     const fetchData = async () => {
@@ -40,3 +61,5 @@ export const fetchArticleBodyData = (id) => {
     }
   };
 };
+
+export const updateViewCount = () => {};

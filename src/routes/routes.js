@@ -3,6 +3,7 @@ import RootLayout from "../pages/root/root";
 import ErrorPage from "../pages/ErrorPage";
 import HomePage from "../pages/HomePage/HomePage";
 import ArticlePage from "../pages/ArticlePage/ArticlePage";
+import ArticleList from "../pages/ArticleList/ArticleList";
 export const Router = createBrowserRouter([
   {
     path: "/",
@@ -11,6 +12,7 @@ export const Router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/article/:id", element: <ArticlePage /> },
+      { path: "/articles/:tags", element: <ArticleList /> },
     ],
   },
 ]);

@@ -20,7 +20,7 @@ const ArticlePage = () => {
 
   return (
     <div className={classes.container}>
-      {loading ? (
+      {loading && article ? (
         <div>
           <div className={classes.bannerConatiner}>
             <div className={classes.tagContainer}>
@@ -61,7 +61,7 @@ const ArticlePage = () => {
                   <div className={classes.imgContainer}>
                     <img
                       className={classes.imgContainer}
-                      src={article.articleImgs[0]}
+                      src={article.articleImgs[2]}
                     />
                   </div>
                 ) : (

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchActiclesData } from "../../features/api/articlesActions";
 import { Navigate, redirect } from "react-router-dom";
@@ -44,6 +44,7 @@ const HomePage = () => {
     },
   ];
   const articleArry = [];
+
   const article = useSelector((state) => state.GetArticles.articles);
   const loading = useSelector((state) => state.GetArticles.isLoading);
   const dispatch = useDispatch();
@@ -57,9 +58,13 @@ const HomePage = () => {
     <>
       <div className={classes.ArticleContainer}>
         <h1 className={classes.HeadLine}>Top News</h1>
-        {article.map((article, index) => (
-          <HeadlineThumbNail key={index} thumbnail={article} />
-        ))}
+        {article.map((article, index) =>
+          article.isHeadLine ? (
+            <HeadlineThumbNail key={index} thumbnail={article} />
+          ) : (
+            <div key={index}></div>
+          )
+        )}
       </div>
       <div className={classes.HeadLineContainer}>
         <h2 className={classes.HeadLine}>More News</h2>
@@ -67,12 +72,16 @@ const HomePage = () => {
       </div>
 
       <div>
-        {tempArry2.map((article, index) => (
-          <ArticleThumbnail key={index} thumbnail={article} />
-        ))}
+        {article.map((article, index) =>
+          !article.isHeadLine ? (
+            <ArticleThumbnail key={index} thumbnail={article} />
+          ) : (
+            <div key={index}></div>
+          )
+        )}
       </div>
     </>
   );
 };
-
+//<ArticleThumbnail key={index} thumbnail={article} />
 export default HomePage;

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useNavigate, redirect } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -18,13 +19,13 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import { Titles } from "../../ults/names";
 import { colorTheme } from "../../ults/color";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Home Page", "Games", "Drama", "News"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  let navigate = useNavigate();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -40,6 +41,17 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  const handleNavagation = (page) => {
+    console.log(page);
+
+    if (page == "Home Page") {
+      navigate(`/`);
+    } else {
+      navigate(`/articles/${page}`);
+    }
+
+    //
+  };
   const theme1 = createTheme({
     palette: {
       primary: {
@@ -108,8 +120,12 @@ function Navbar() {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography style={{ color: "blue" }} textAlign="center">
+                  <MenuItem key={page}>
+                    <Typography
+                      onClick={() => handleNavagation(page)}
+                      style={{ color: "blue" }}
+                      textAlign="center"
+                    >
                       {page}
                     </Typography>
                   </MenuItem>

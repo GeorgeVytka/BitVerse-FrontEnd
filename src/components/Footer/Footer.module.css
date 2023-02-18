@@ -8,9 +8,10 @@
     background-color: var(--PRIMARY_COLOR);
     color: white;
     height: 250px;
-
+    width: 100%;
     margin-bottom: 0px;
     padding-bottom: 0px;
+    
 }
 
 .titleContainer{
