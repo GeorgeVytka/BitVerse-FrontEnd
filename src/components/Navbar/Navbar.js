@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useNavigate, redirect } from "react-router-dom";
+import { useNavigate, redirect, NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -19,7 +19,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import { Titles } from "../../ults/names";
 import { colorTheme } from "../../ults/color";
 
-const pages = ["Home Page", "Games", "Drama", "News"];
+const pages = ["Games", "Drama", "News"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
@@ -119,17 +119,26 @@ function Navbar() {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                {pages.map((page) => (
-                  <MenuItem key={page}>
-                    <Typography
-                      onClick={() => handleNavagation(page)}
-                      style={{ color: "blue" }}
-                      textAlign="center"
-                    >
-                      {page}
-                    </Typography>
-                  </MenuItem>
-                ))}
+                <MenuItem>
+                  <Typography style={{ color: "blue" }} textAlign="center">
+                    <NavLink to={"/"}>Home Page</NavLink>
+                  </Typography>
+                </MenuItem>
+                <MenuItem>
+                  <Typography style={{ color: "blue" }} textAlign="center">
+                    <NavLink to={"/articles/Drama"}>Drama</NavLink>
+                  </Typography>
+                </MenuItem>
+                <MenuItem>
+                  <Typography style={{ color: "blue" }} textAlign="center">
+                    <NavLink to={"/articles/News"}>News</NavLink>
+                  </Typography>
+                </MenuItem>
+                <MenuItem>
+                  <Typography style={{ color: "blue" }} textAlign="center">
+                    <NavLink to={"/articles/Gaming"}>Gaming</NavLink>
+                  </Typography>
+                </MenuItem>
               </Menu>
             </Box>
             <LogoDevIcon

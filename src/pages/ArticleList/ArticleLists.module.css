@@ -1,4 +1,6 @@
 .container{
-    background-color: aqua;
+    
     height: auto;
+   
+    min-height: 500px;
 }

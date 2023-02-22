@@ -32,7 +32,6 @@ export const ArticleSlice = createSlice({
       state.articleBody = action.payload;
     },
     IsLoading(state, action) {
-      console.log("in slice", state.isLoading);
       state.isLoading = action.payload;
     },
   },

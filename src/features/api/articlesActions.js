@@ -26,13 +26,15 @@ export const fetchArticleByTag = (tag) => {
       const response = await axios.get(
         ` http://localhost:8080/api/v1/articles/${tag}`
       );
+      console.log("this is the result::: ", response.data);
 
       return response.data;
     };
 
     try {
+      console.log("beginning of await");
       const articleData = await fetchData();
-
+      console.log("after DB call : ", articleData);
       dispatch(ArticleSlice.actions.Articles(articleData));
       dispatch(ArticleSlice.actions.IsLoading(true));
     } catch (error) {

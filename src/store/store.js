@@ -6,9 +6,11 @@ so that you can inspect the store while developing.
 
 import { configureStore } from "@reduxjs/toolkit";
 import ArticlesSlice from "../features/api/ArticlesSlice";
+import AuthorSlice from "../features/api/AuthorSlice";
 
 export default configureStore({
   reducer: {
     GetArticles: ArticlesSlice,
+    GetAuthor: AuthorSlice,
   },
 });

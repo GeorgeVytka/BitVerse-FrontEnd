@@ -4,13 +4,14 @@ import { fetchArticleByTag } from "../../features/api/articlesActions";
 import { ArticleSlice } from "../../features/api/ArticlesSlice";
 import { Link, useParams } from "react-router-dom";
 import ArticleThumbnail from "../../components/ArticleThumbnail/ArticleThumbnail";
-import classes from "./ArticleLists.module.css";
+import classes from "./NewsArticles.module.css";
 
-const ArticleList = () => {
+const NewsArticles = (props) => {
   const article = useSelector((state) => state.GetArticles.articles);
   const loading = useSelector((state) => state.GetArticles.isLoading);
   const dispatch = useDispatch();
-  let { tags } = useParams();
+  const { tags } = props;
+  //let { tags } = useParams();
   useEffect(() => {
     console.log("alrticlelist apperas!!!");
     dispatch(fetchArticleByTag(tags));
@@ -33,4 +34,4 @@ const ArticleList = () => {
   );
 };
 
-export default ArticleList;
+export default NewsArticles;

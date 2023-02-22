@@ -55,7 +55,7 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className={classes.container}>
       <div className={classes.ArticleContainer}>
         <h1 className={classes.HeadLine}>Top News</h1>
         {article.map((article, index) =>
@@ -80,7 +80,7 @@ const HomePage = () => {
           )
         )}
       </div>
-    </>
+    </div>
   );
 };
 //<ArticleThumbnail key={index} thumbnail={article} />
