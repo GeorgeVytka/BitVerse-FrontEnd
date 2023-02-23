@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { AuthorSlice } from "../../features/api/AuthorSlice";
-import { fetchAuthorData } from "../../features/api/authorActions";
+import { ArticleSlice } from "../../features/api/ArticlesSlice";
+import {
+  fetchAuthorData,
+  fetchArticleByTag,
+} from "../../features/api/authorActions";
 import { Link, useParams } from "react-router-dom";
-
+//import { useNavigate, redirect, Link } from "react-router-dom";
 import { datereturn } from "../../ults/helper";
 import classes from "./AuthorPage.module.css";
+import ArticleThumbnail from "../../components/ArticleThumbnail/ArticleThumbnail";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 const AuthorPage = () => {
@@ -29,52 +34,100 @@ const AuthorPage = () => {
   };
   let { name } = useParams();
   const author = useSelector((state) => state.GetAuthor.author);
+
   const loading = useSelector((state) => state.GetAuthor.isLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(AuthorSlice.actions.IsLoading(false));
     dispatch(fetchAuthorData(name));
+
     dispatch(AuthorSlice.actions.IsLoading(true));
-    console.log("---", author);
-  }, [dispatch]);
+  }, [dispatch, loading]);
+
+  function temp() {
+    try {
+      console.log("####################::  ", author[0]);
+      console.log("-------------:: ", author[0].Articles);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
-    <>
-      <div className={classes.container}>
-        <div className={classes.innerContainer}>
-          <img className={classes.imgContainer} src={DUMMY_DATA.ProfilePic} />
-        </div>
-        <div className={classes.bannerContainer}>
-          <h1 style={{ marginTop: "0px" }}>{DUMMY_DATA.Name}</h1>
-          <div className={classes.infoContainer}>
-            <span className={classes.textContainer}>
-              Joined on:{" "}
-              <span style={{ fontWeight: "bold" }}>
-                {datereturn(DUMMY_DATA.Joined)}
-              </span>
-            </span>
-            <div className={classes.textContainer2}>
-              Posts:{" "}
-              <span style={{ fontWeight: "bold" }}>
-                {DUMMY_DATA.Articles.length}
-              </span>
+    <div className={classes.superContainer}>
+      {loading && author[0].Articles ? (
+        <>
+          {temp()}
+          <div className={classes.container}>
+            <div className={classes.innerContainer}>
+              <img
+                className={classes.imgContainer}
+                src={author[0].ProfilePic}
+              />
+            </div>
+            <div className={classes.bannerContainer}>
+              <h1 style={{ marginTop: "0px" }}>{author[0].Name}</h1>
+              <div className={classes.infoContainer}>
+                <span className={classes.textContainer}>
+                  Joined on:{" "}
+                  <span style={{ fontWeight: "bold" }}>
+                    {datereturn(author[0].Joined)}
+                  </span>
+                </span>
+                <div className={classes.textContainer2}>
+                  Posts:{" "}
+                  <span style={{ fontWeight: "bold" }}>
+                    {DUMMY_DATA.Articles.length}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className={classes.bioContainer}>
-        <p>{DUMMY_DATA.Bio}</p>
-      </div>
+          <div className={classes.bioContainer}>
+            <p>{author[0].Bio}</p>
+          </div>
 
-      <div className={classes.socailContainer}>
-        <TwitterIcon /> <InstagramIcon />
-      </div>
+          {/* <div className={classes.socailContainer}>
+            {author[0].Socials.map((item, index) =>
+              item.name == "Twitter" ? (
+                <Link to={item.link}>
+                  <TwitterIcon />
+                </Link>
+              ) : item.name == "Instagram" ? (
+                <Link to={item.link}>
+                  <InstagramIcon />
+                </Link>
+              ) : (
+                <></>
+              )
+            )}
+          </div> */}
 
-      <div className={classes.activityContainer}>
-        <h2>Activity</h2>
-      </div>
-    </>
+          <div className={classes.activityContainer}>
+            <h2>Activity</h2>
+
+            {author[0].Articles.map((item, index) => (
+              <p>{item.title}</p>
+            ))}
+            {/* <div>
+              {" "}
+              {author[0].Articles == un ? (
+                author[0].Articles.map((article, index) => (
+                  <ArticleThumbnail key={index} thumbnail={article} />
+                ))
+              ) : (
+                <>loading</>
+              )}
+            </div> */}
+            {/* maybe create a new page that show all author articles*/}
+          </div>
+        </>
+      ) : (
+        <div>loading</div>
+      )}
+    </div>
   );
 };
 
