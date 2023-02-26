@@ -39,11 +39,8 @@ const AuthorPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(AuthorSlice.actions.IsLoading(false));
     dispatch(fetchAuthorData(name));
-
-    dispatch(AuthorSlice.actions.IsLoading(true));
-  }, [dispatch, loading]);
+  }, [dispatch]);
 
   function temp() {
     try {
@@ -56,7 +53,7 @@ const AuthorPage = () => {
 
   return (
     <div className={classes.superContainer}>
-      {loading && author[0].Articles ? (
+      {loading && author ? (
         <>
           {temp()}
           <div className={classes.container}>
@@ -107,9 +104,11 @@ const AuthorPage = () => {
 
           <div className={classes.activityContainer}>
             <h2>Activity</h2>
-
+            {/* /author/article/:id*/}
             {author[0].Articles.map((item, index) => (
-              <p>{item.title}</p>
+              <Link key={index} to={`/author/article/${item.ID}`}>
+                <p>{item.title}</p>
+              </Link>
             ))}
             {/* <div>
               {" "}

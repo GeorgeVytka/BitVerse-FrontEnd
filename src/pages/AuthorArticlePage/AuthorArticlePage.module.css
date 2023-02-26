@@ -1,0 +1,69 @@
+:root{
+    --SECONDARY_COLOR: #301E67 ;
+    --TERTIARY_COLOR: #5B8FB9;
+    --QUATERNARY_COLOR: #03cd90;
+}
+.container{
+    overflow-y: hidden; /* Hide vertical scrollbar */
+
+}
+.quoteContainer{
+    font-weight: 100;
+    font-size: 19px;
+    font-style: italic;
+}
+
+.bannerConatiner{
+   
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tagContainer{
+    display: flex;
+    width: auto;
+ 
+    justify-content:flex-start;
+    margin-top: 50px;
+
+    margin-bottom: -10px;
+}
+
+.tag{
+ 
+    
+   
+    text-align: center;
+   
+    margin-right: 8px;
+  
+    
+    border-bottom: 2px solid var(--TERTIARY_COLOR);
+    color: var(--TERTIARY_COLOR);
+  
+    font-size: 12px;
+}
+
+.author{
+  
+   font-size: small;
+}
+
+.author span{
+    color: var(--QUATERNARY_COLOR);
+}
+
+.imgContainer{
+    width: auto;
+   
+}
+
+.imgContainer img{
+    width: 100%;
+   
+}
+
+.articleBody{
+    margin-left: 7px;
+    margin-right: 7px;
+}

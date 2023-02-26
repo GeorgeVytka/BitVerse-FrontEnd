@@ -8,6 +8,7 @@ import DramaArticles from "../pages/DramaArticles/DramaArticles";
 import NewsArticles from "../pages/NewsArticlePage/NewsArticles";
 import GamingArticles from "../pages/GamingArticles/GamingArticles";
 import AuthorPage from "../pages/AuthorPage/AuthorPage";
+import AuthorArticlePage from "../pages/AuthorArticlePage/AuthorArticlePage";
 export const Router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,7 @@ export const Router = createBrowserRouter([
       { path: `/articles/Gaming`, element: <GamingArticles tags={"Gaming"} /> },
       { path: `/articles/News`, element: <NewsArticles tags={"News"} /> },
       { path: `/author/:name`, element: <AuthorPage /> },
+      { path: "/author/article/:id", element: <AuthorArticlePage /> },
     ],
   },
 ]);

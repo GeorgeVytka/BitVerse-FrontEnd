@@ -6,6 +6,7 @@ const ArticleThumbnail = (props) => {
   let navigate = useNavigate();
   return (
     <>
+      {console.log("this is props: -- ", props)}
       <Link to={`/article/${props.thumbnail.ID}`}>
         <div className={classes.container}>
           <div className={classes.imgContainer}>

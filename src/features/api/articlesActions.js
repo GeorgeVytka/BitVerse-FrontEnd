@@ -44,7 +44,10 @@ export const fetchArticleByTag = (tag) => {
 };
 
 export const fetchArticleBodyData = (id) => {
+  console.log("where it starts--", id);
+
   return async (dispatch) => {
+    dispatch(ArticleSlice.actions.IsLoading(false));
     const fetchData = async () => {
       const response = await axios.get(
         `http://localhost:8080/api/v1/article/${id}`
