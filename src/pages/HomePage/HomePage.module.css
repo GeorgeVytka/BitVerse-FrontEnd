@@ -1,5 +1,6 @@
 .container{
     min-height: 150px;
+    background-color: aqua;
    
 }
 .HeadLine{
@@ -26,4 +27,34 @@
     width: 70%;
     height: 50%;
    
+
 }
+
+@media (min-width: 800px) {
+   .gridContainer {
+      background: yellow;
+      display: grid ;
+      gap:1rem;
+      padding-block: 1rem;
+      width: min(95%, 90rem);
+      margin-inline: auto;
+      grid-template-columns: repeat(3,1fr) ;
+    }
+    .gridColSpan2:first-child{
+        /* grid-column: span 2; */
+        background-color: red;
+      }  
+
+      .gridColSpan2:last-child{
+        background-color: blue;
+      
+        /* forces the box to move to row line number 1*/
+        /* grid-row-start: 1; */
+      
+        /* this */
+        /* grid-row-end: span 2; */
+      
+        /* this is shirt hand.  1-where strt / 3- where end*/
+        grid-row: 1/span 2;
+      }
+  }

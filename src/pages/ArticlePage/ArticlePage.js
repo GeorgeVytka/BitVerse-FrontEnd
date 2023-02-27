@@ -14,23 +14,13 @@ const ArticlePage = () => {
   // const { LLoading } = ArticleAction;
 
   useEffect(() => {
-    console.log(
-      "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-    );
-
     dispatch(fetchArticleBodyData(id));
-
-    console.log(
-      "this is id------------------------------------------------",
-      article
-    );
   }, [dispatch]);
 
   return (
     <div className={classes.container}>
       {loading && article ? (
         <div>
-          {console.log("this is inside body of article page:::: ", id)}
           <div className={classes.bannerConatiner}>
             <div className={classes.tagContainer}>
               {article.tags.map((tag, index) => (
@@ -44,9 +34,11 @@ const ArticlePage = () => {
             </div>
             <div className={classes.quoteContainer}>"{article.quote}"</div>
             <div>
-              <p className={classes.author}>
-                By <span>{article.author}</span>
-              </p>
+              <Link to={`/author/${article.author}`}>
+                <p className={classes.author}>
+                  By <span>{article.author}</span>
+                </p>{" "}
+              </Link>
             </div>
           </div>
           <div className={classes.imgContainer}>

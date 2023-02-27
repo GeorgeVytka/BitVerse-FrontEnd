@@ -44,3 +44,18 @@
     
 }
 
+@media (min-width: 800px) {
+    .container{
+        background-color: coral;
+        display:inline;
+        justify-content:center
+    }
+
+
+    .titleContainer{
+  
+        width: 50%;
+        font-size: 1.5vw;
+         
+     }
+}

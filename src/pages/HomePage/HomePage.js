@@ -58,13 +58,18 @@ const HomePage = () => {
     <div className={classes.container}>
       <div className={classes.ArticleContainer}>
         <h1 className={classes.HeadLine}>Top News</h1>
-        {article.map((article, index) =>
-          article.isHeadLine ? (
-            <HeadlineThumbNail key={index} thumbnail={article} />
-          ) : (
-            <div key={index}></div>
-          )
-        )}
+        {console.log("-------------------", article)}
+        <div className={classes.gridContainer}>
+          {article.map((article, index) =>
+            article.isHeadLine ? (
+              <div className={classes.gridColSpan2}>
+                <HeadlineThumbNail key={index} thumbnail={article} />
+              </div>
+            ) : (
+              <div key={index}></div>
+            )
+          )}
+        </div>
       </div>
       <div className={classes.HeadLineContainer}>
         <h2 className={classes.HeadLine}>More News</h2>
