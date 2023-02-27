@@ -6,6 +6,8 @@ import { ArticleSlice } from "../../features/api/ArticlesSlice";
 import HeadlineThumbNail from "../../components/HeadlineThumbNail/HeadlineThumbNail";
 import ArticleThumbnail from "../../components/ArticleThumbnail/ArticleThumbnail";
 import classes from "./HomePage.module.css";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const HomePage = () => {
   const tempArry = [
@@ -56,6 +58,16 @@ const HomePage = () => {
 
   return (
     <div className={classes.container}>
+      {article ? (
+        <></>
+      ) : (
+        <>
+          {" "}
+          <Box sx={{ display: "flex" }}>
+            <CircularProgress />
+          </Box>
+        </>
+      )}
       <div className={classes.ArticleContainer}>
         <h1 className={classes.HeadLine}>Top News</h1>
         {console.log("-------------------", article)}
@@ -76,7 +88,7 @@ const HomePage = () => {
         <div className={classes.divider}></div>
       </div>
 
-      <div>
+      <div className={classes.articleContainer}>
         {article.map((article, index) =>
           !article.isHeadLine ? (
             <ArticleThumbnail key={index} thumbnail={article} />

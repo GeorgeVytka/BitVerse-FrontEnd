@@ -1,3 +1,7 @@
+.root{
+    --SECONDARY_COLOR: #301E67;
+    --TERTIARY_COLOR: #5B8FB9;
+}
 .container{
     
     display:flex;
@@ -13,6 +17,8 @@
     border-image-slice: 1;
  
 }
+
+
 
 
 .container img{
@@ -46,16 +52,54 @@
 
 @media (min-width: 800px) {
     .container{
-        background-color: coral;
-        display:inline;
-        justify-content:center
+      
+        display:inline-block;
+        justify-content:center;
+      
+      height: 40vw;
+        
+        
+        
+    }
+    .container:hover{
+        transform: scale(1.1);
+        transition-duration: 0.3s;
+      }
+    
+    .tag{
+ 
+        width: 60px;
+       
+        text-align: center;
+        border-radius: 5px;
+        color: white;
+       
     }
 
-
+    .imgContainer{
+        width: 100%;
+        margin-right: 50px;
+        height: 20vw;
+        border-radius: 0.5rem;
+        box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(--clr-secondary-400) / 0.25);
+        
+        
+      
+    }
     .titleContainer{
   
-        width: 50%;
+        width: 100%;
         font-size: 1.5vw;
+        text-align: center;
+        
          
      }
+
+     .container img{
+        width: 100%;
+        height: 100%;
+        
+      
+       
+    }
 }

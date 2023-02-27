@@ -47,3 +47,12 @@
 .title{
     font-size: 17px;
 }
+
+
+@media (min-width: 800px) {
+
+    .container{
+        height: 200px;
+    }
+}
+
