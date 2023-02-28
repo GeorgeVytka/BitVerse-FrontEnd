@@ -42,20 +42,10 @@ const AuthorPage = () => {
     dispatch(fetchAuthorData(name));
   }, [dispatch]);
 
-  function temp() {
-    try {
-      console.log("####################::  ", author[0]);
-      console.log("-------------:: ", author[0].Articles);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   return (
     <div className={classes.superContainer}>
-      {loading && author ? (
+      {author[0].ProfilePic ? (
         <>
-          {temp()}
           <div className={classes.container}>
             <div className={classes.innerContainer}>
               <img

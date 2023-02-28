@@ -34,6 +34,7 @@ const ArticlePage = () => {
             </div>
             <div className={classes.quoteContainer}>"{article.quote}"</div>
             <div>
+              {console.log("this is in article page:::: ---->", article.author)}
               <Link to={`/author/${article.author}`}>
                 <p className={classes.author}>
                   By <span>{article.author}</span>
