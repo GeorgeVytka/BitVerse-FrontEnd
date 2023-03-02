@@ -48,6 +48,7 @@ const HomePage = () => {
   const articleArry = [];
 
   const article = useSelector((state) => state.GetArticles.articles);
+  const headline = useSelector((state) => state.GetArticles.headline);
   const loading = useSelector((state) => state.GetArticles.isLoading);
   const dispatch = useDispatch();
 
@@ -62,7 +63,6 @@ const HomePage = () => {
         <></>
       ) : (
         <>
-          {" "}
           <Box sx={{ display: "flex" }}>
             <CircularProgress />
           </Box>
@@ -70,9 +70,10 @@ const HomePage = () => {
       )}
       <div className={classes.ArticleContainer}>
         <h1 className={classes.HeadLine}>Top News</h1>
-        {console.log("-------------------", article)}
+        {console.log("this is headline::::::::", headline)}
+        {console.log("this is aryicle:", article)}
         <div className={classes.gridContainer}>
-          {article.map((article, index) =>
+          {headline.map((article, index) =>
             article.isHeadLine ? (
               <div className={classes.gridColSpan2}>
                 <HeadlineThumbNail key={index} thumbnail={article} />

@@ -31,6 +31,12 @@
 }
 
 @media (min-width: 800px) {
+
+  .container{
+    width: 1250px;
+    margin-right: auto;
+    margin-left: auto;
+  }
    .gridContainer {
       
       display: grid ;
@@ -51,7 +57,7 @@
         /* grid-row-end: span 2; */
       
         /* this is shirt hand.  1-where strt / 3- where end*/
-        grid-row: 1/span 2;
+        /* grid-row: 1/span 2; */
       }
 
       .articleContainer{

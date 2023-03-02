@@ -21,11 +21,13 @@ export const ArticleSlice = createSlice({
   initialState: {
     isLoading: false,
     articles: [],
+    headline: [],
     articleBody: [],
   },
   reducers: {
     Articles(state, action) {
-      state.articles = action.payload;
+      state.articles = action.payload.articles;
+      state.headline = action.payload.headlines;
     },
 
     ArticleBody(state, action) {
