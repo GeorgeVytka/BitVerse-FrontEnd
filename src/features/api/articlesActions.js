@@ -12,7 +12,7 @@ export const fetchActiclesData = () => {
 
     try {
       const articleData = await fetchData();
-
+      console.log("*****************************", articleData);
       dispatch(ArticleSlice.actions.Articles(articleData));
     } catch (error) {
       console.log("**", error);
@@ -32,13 +32,12 @@ export const fetchArticleByTag = (tag) => {
     };
 
     try {
-      console.log("beginning of await");
       const articleData = await fetchData();
       console.log("after DB call : ", articleData);
-      dispatch(ArticleSlice.actions.Articles(articleData));
-      dispatch(ArticleSlice.actions.IsLoading(true));
+      dispatch(ArticleSlice.actions.ArticleTags(articleData));
+      // dispatch(ArticleSlice.actions.Articles(articleData));
     } catch (error) {
-      console.log("**", error);
+      console.log(error);
     }
   };
 };

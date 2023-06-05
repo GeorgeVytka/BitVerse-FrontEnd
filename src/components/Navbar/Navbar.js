@@ -72,6 +72,7 @@ function Navbar() {
           <Toolbar disableGutters>
             <LogoDevIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
             {/* this is full screen size*/}
+            {/* the logo*/}
             <Typography
               variant="h6"
               noWrap
@@ -164,14 +165,22 @@ function Navbar() {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  style={{ color: "#5B8FB9" }}
-                  sx={{ my: 2, mx: 2, pt: 1, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
+                <NavLink to={`/articles/${page}`} style={{ color: "#5B8FB9" }}>
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    style={{ color: "#5B8FB9" }}
+                    sx={{
+                      my: 2,
+                      mx: 2,
+                      pt: 1,
+                      color: "white",
+                      display: "block",
+                    }}
+                  >
+                    {page}
+                  </Button>{" "}
+                </NavLink>
               ))}
             </Box>
 

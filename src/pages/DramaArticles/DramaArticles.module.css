@@ -6,6 +6,7 @@
 .container{
     overflow-y: hidden; /* Hide vertical scrollbar */
     min-height: 700px;
+    
 
 }
 .quoteContainer{
@@ -67,4 +68,16 @@
 .articleBody{
     margin-left: 7px;
     margin-right: 7px;
+}
+
+@media (min-width: 800px) {
+
+    .container{
+        
+        margin-left: auto;
+        margin-right: auto;
+        width: 900px;
+        
+    
+    }
 }

@@ -21,6 +21,7 @@ export const ArticleSlice = createSlice({
   initialState: {
     isLoading: false,
     articles: [],
+    articleByTags: [],
     headline: [],
     articleBody: [],
   },
@@ -28,6 +29,10 @@ export const ArticleSlice = createSlice({
     Articles(state, action) {
       state.articles = action.payload.articles;
       state.headline = action.payload.headlines;
+    },
+    ArticleTags(state, action) {
+      console.log("can i do htis here?", action.payload);
+      state.articleByTags = action.payload;
     },
 
     ArticleBody(state, action) {
